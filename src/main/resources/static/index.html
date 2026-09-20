@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>野外身份假设审阅</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>野外身份假设审阅</h1>
+      <p>原始观测、自动候选与人工决定分层保留；冲突不删除观测。</p>
+    </div>
+    <div class="header-actions">
+      <button id="newRevision">创建审阅版本</button>
+      <button id="publishRevision">发布当前版本</button>
+      <a href="/api/captures/history.csv">导出 CSV</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel summary-panel">
+      <div>
+        <h2>捕获概率摘要</h2>
+        <div id="summary">加载中…</div>
+      </div>
+      <div>
+        <h2>当前假设</h2>
+        <div id="revisionInfo">加载中…</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>观测时线</h2>
+      <div class="filters">
+        <input id="search" placeholder="搜索编码、地点、花纹、标记…">
+        <label><input type="checkbox" id="onlyOpen"> 仅看未决/冲突</label>
+      </div>
+      <div id="observations" class="observations"></div>
+    </section>
+
+    <section class="panel">
+      <h2>调查时段（半开区间）</h2>
+      <div id="surveys"></div>
+    </section>
+  </main>
+
+  <template id="observation-template">
+    <article class="observation">
+      <div class="observation-head">
+        <div>
+          <h3></h3>
+          <p class="meta"></p>
+        </div>
+        <div class="assignment"></div>
+      </div>
+      <div class="raw-features"></div>
+      <div class="candidates"></div>
+    </article>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>
