@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>个体身份假设审阅台</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>个体身份假设审阅台</h1>
+  <div class="hyp-bar">
+    <label>假设
+      <select id="hypSelect"></select>
+    </label>
+    <span id="hypMeta" class="hyp-meta"></span>
+    <button id="btnNewDraft" class="ghost">从已发布版本新建草稿</button>
+    <button id="btnPublish">发布新版本（幂等）</button>
+    <a id="csvLink" class="ghost btn-link" href="#">导出捕获历史 CSV</a>
+  </div>
+  <div class="rule-bar" id="ruleBar"></div>
+</header>
+
+<nav class="tabs">
+  <button data-tab="timeline" class="active">观测时间线</button>
+  <button data-tab="candidates">个体候选与特征对比</button>
+  <button data-tab="conflicts">时空冲突</button>
+  <button data-tab="capture">捕获历史</button>
+  <button data-tab="import">导入批次</button>
+</nav>
+
+<main>
+  <section id="tab-timeline" class="tab active"></section>
+  <section id="tab-candidates" class="tab"></section>
+  <section id="tab-conflicts" class="tab"></section>
+  <section id="tab-capture" class="tab"></section>
+  <section id="tab-import" class="tab"></section>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <h2 id="modalTitle"></h2>
+    <div id="modalBody"></div>
+    <div class="modal-actions">
+      <button id="modalCancel" class="ghost">取消</button>
+      <button id="modalOk">确定</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="app.js"></script>
+</body>
+</html>
